@@ -22,7 +22,7 @@
 
 ?>
    
-   <?php require_once 'includes/footer.php';?>
+
 
     <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -45,6 +45,8 @@
     </div>
 <?php         }
     }?>
+
+<?php require_once 'includes/footer.php';?>
 
 
     <!-- This prints out values that weres passed to the action page using method="get" -->
