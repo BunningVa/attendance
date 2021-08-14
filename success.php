@@ -13,13 +13,13 @@
         //Call function to insert and track if success or not
         $isSuccess = $crud->insertAttendees($fname,$lname,$dob,$email,$contact,$specialty);
 
-        if($isSuccess){
-            include 'includes/successmessage.php';
+        if(!$isSuccess){
+            include 'includes/errormessage.php';
+            
         }
         else{
-            include 'includes/errormessage.php';
-        }
-    }
+            include 'includes/successmessage.php';
+
 ?>
    
 
@@ -62,5 +62,6 @@
             </p>    
         </div>
     </div>
-
+<?php         }
+    }?>
 <?php require_once 'includes/footer.php';?>
