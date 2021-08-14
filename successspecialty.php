@@ -18,11 +18,22 @@
 ?>
    
 
-    <!-- This prints out values that weres passed to the action page using method="get" -->
+   
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">
+                <?php echo $_POST['specialty'];?>
+            </h6>
+        </div>
+    </div>
+
+<?php require_once 'includes/footer.php';?>
+
+ <!-- This prints out values that weres passed to the action page using method="get" -->
     <!-- <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">
-                <?php //echo $_GET['firstname']. ' '. $_GET['lastname'];?>
+            <?php //echo $_GET['firstname']. ' '. $_GET['lastname'];?>
             </h5>
             <h6 class="card-subtitle mb-2 text-muted">
                 <?php// echo $_GET['specialty'];?>
@@ -38,12 +49,3 @@
             </p>    
         </div>
     </div> -->
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">
-                <?php echo $_POST['specialty'];?>
-            </h6>
-        </div>
-    </div>
-
-<?php require_once 'includes/footer.php';?>
