@@ -14,7 +14,7 @@
         $isSuccess = $crud->insertAttendees($fname,$lname,$dob,$email,$contact,$specialty);
 
         if($isSuccess){
-            echo '<h1>Insert successfully</h1>';
+            include 'includes/successmessage.php';
         }
         else{
             include 'includes/errormessage.php';
