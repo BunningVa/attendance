@@ -1,16 +1,16 @@
 <?php
-   // $host = 'localhost';
-  //  $db = 'attendance_db';
-  //  $user = 'root';
-   // $pass = '';
-  //  $charset = 'utf8mb4';
+    $host = 'localhost';
+    $db = 'attendance_db';
+    $user = 'root';
+    $pass = '';
+     $charset = 'utf8mb4';
 
     //Remote Database Connection
-    $host = 'remotemysql.com';
-    $db = 'qRlzPIOOc1';
-    $user = 'qRlzPIOOc1';
-    $pass = 'YNLNkaiEdx';
-    $charset = 'utf8mb4';
+    //$host = 'remotemysql.com';
+    //$db = 'qRlzPIOOc1';
+    //$user = 'qRlzPIOOc1';
+    //$pass = 'YNLNkaiEdx';
+    //$charset = 'utf8mb4';
     
     //(dsn): data source name
 
@@ -25,5 +25,9 @@
     }
 
     require_once 'crud.php';
+    require_once 'user.php';
     $crud = new crud($pdo);
+    $user = new user($pdo);
+
+    $user->insertUser("admin", "password");
 ?>

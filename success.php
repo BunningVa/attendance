@@ -10,9 +10,22 @@
         $email = $_POST['email'];
         $contact = $_POST['phone'];
         $specialty = $_POST['specialty'];
-        //Call function to insert and track if success or not
-        $isSuccess = $crud->insertAttendees($fname,$lname,$dob,$email,$contact,$specialty);
+       
+        $orig_file = $_FILES["avatar"]["tmp_name"];
+         // the first array subscript which is ["avatar] refers to the name of the control which is come from the name control
+        // we feference it by name
+        // the second subscript which is ["tmp_name"] refers to the attribute is just like when you right click file windows system
+        // then you see the name the date created the size all of thhse file are attributes
+        $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+        $target_dir = 'uploads/';
+        $destination = "$target_dir$contact.$ext";
+        move_uploaded_file($orig_file,$destination);
 
+        
+
+        //Call function to insert and track if success or not
+        $isSuccess = $crud->insertAttendees($fname,$lname,$dob,$email,$contact,$specialty, $destination);
+        $specialtyName = $crud->getSpecialtyById($specialty);
         if(!$isSuccess){
             include 'includes/errormessage.php';
             
@@ -23,14 +36,14 @@
 ?>
    
 
-
+         <img src="<?php echo $destination; ?>" class="rounded-circle" style="width: 20%; height:20%;" >
     <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">
                 <?php echo $_POST['firstname']. ' '. $_POST['lastname'];?>
             </h5>
             <h6 class="card-subtitle mb-2 text-muted">
-                <?php echo $_POST['specialty'];?>
+                <?php echo $specialtyName['name'];?>
             </h6>
             <p class="card-text">
                 Date Of Birth: <?php echo $_POST['dob'];?>
